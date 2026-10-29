@@ -86,7 +86,7 @@ export function SiteHeader() {
             : "border-transparent bg-transparent",
         )}
       >
-        <a href="#top" className="group flex items-center gap-2 pl-1 font-semibold tracking-tight">
+        <a href="/#top" className="group flex items-center gap-2 pl-1 font-semibold tracking-tight">
           <span className="grid size-8 place-items-center rounded-full bg-fg font-mono text-xs text-bg transition-transform group-hover:rotate-[-8deg]">
             RA
           </span>
@@ -97,7 +97,7 @@ export function SiteHeader() {
           {navItems.map((item) => (
             <li key={item.id}>
               <a
-                href={`#${item.id}`}
+                href={`/#${item.id}`}
                 aria-current={active === item.id ? "location" : undefined}
                 className={cn(
                   "relative rounded-full px-3 py-1.5 text-sm transition-colors",

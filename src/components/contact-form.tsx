@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useRef } from "react";
+import { useActionState } from "react";
 import { CircleCheck, LoaderCircle, Send } from "lucide-react";
 import { sendContactMessage, type ContactState } from "@/app/actions";
 import { profile } from "@/content/profile";
@@ -14,7 +14,6 @@ const fieldClass =
  * visitor's mail app with the message pre-filled, so the form always works.
  */
 export function ContactForm({ enabled }: { enabled: boolean }) {
-  const formRef = useRef<HTMLFormElement>(null);
   const [state, action, pending] = useActionState<ContactState, FormData>(
     async (prev, formData) => {
       if (enabled) return sendContactMessage(prev, formData);
@@ -38,7 +37,7 @@ export function ContactForm({ enabled }: { enabled: boolean }) {
   }
 
   return (
-    <form ref={formRef} action={action} className="space-y-4" noValidate={enabled}>
+    <form action={action} className="space-y-4" noValidate={enabled}>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-1.5 block text-xs font-medium text-muted">

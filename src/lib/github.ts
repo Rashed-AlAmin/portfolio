@@ -117,7 +117,7 @@ export async function getContributions(): Promise<Contributions | null> {
   const data = await fetchJson<ContributionsResponse>(
     `https://github-contributions-api.jogruber.de/v4/${USER}?y=last`,
   );
-  if (!data || !Array.isArray(data.contributions)) return null;
+  if (!data || !Array.isArray(data.contributions) || data.contributions.length === 0) return null;
 
   return {
     total: data.total?.lastYear ?? data.contributions.reduce((s, d) => s + d.count, 0),

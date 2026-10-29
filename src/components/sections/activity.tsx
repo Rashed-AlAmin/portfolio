@@ -197,6 +197,26 @@ function GitHubPanelSkeleton() {
 
 /* ---------------------------- Competitive programming ---------------------------- */
 
+/** Shown when a platform's API is unreachable — keeps the card meaningful instead of empty. */
+function StatsFallback({ href }: { href: string }) {
+  return (
+    <div className="mt-6">
+      <p className="font-mono text-3xl font-semibold">
+        300+
+        <span className="ml-2 font-sans text-xs font-normal text-subtle">problems solved across platforms</span>
+      </p>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-3 inline-flex items-center gap-1 text-sm text-muted transition-colors hover:text-fg"
+      >
+        See live stats on the profile <ArrowUpRight className="size-3.5" aria-hidden />
+      </a>
+    </div>
+  );
+}
+
 const cfRankColor: Record<string, string> = {
   newbie: "#9ca3af",
   pupil: "#22c55e",
@@ -236,7 +256,7 @@ async function CodeforcesCard() {
           )}
         </div>
       ) : (
-        <p className="mt-6 text-sm text-muted">Live stats unavailable right now — check the profile directly.</p>
+        <StatsFallback href={profile.socials.codeforces.url} />
       )}
     </>
   );
@@ -245,7 +265,7 @@ async function CodeforcesCard() {
 async function LeetCodeCard() {
   const lc = await getLeetCodeStats();
   if (!lc) {
-    return <p className="mt-6 text-sm text-muted">Live stats unavailable right now — check the profile directly.</p>;
+    return <StatsFallback href={profile.socials.leetcode.url} />;
   }
   const bars = [
     { label: "Easy", value: lc.easy, color: "#22c55e" },
