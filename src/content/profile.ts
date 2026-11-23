@@ -101,6 +101,23 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "Fitness Food Lab",
+    tagline: "Custom dark Shopify theme",
+    description:
+      "A dark, high-energy storefront for a fitness gear and nutrition brand, built on Shopify Dawn with a bespoke design and motion layer. Demo store password: 123.",
+    highlights: [
+      "Nine custom Online Store 2.0 sections, all editable in the theme editor",
+      "Bespoke product page with hover zoom and a sticky add-to-cart bar",
+      "Scroll reveals, marquee and counters in vanilla JS, no libraries",
+      "Self-populating collections driven by the product taxonomy",
+    ],
+    stack: ["Shopify", "Liquid", "JavaScript", "CSS"],
+    live: "https://fitness-food-lab.myshopify.com",
+    repo: "https://github.com/Rashed-AlAmin/shopify-gym-food-lab",
+    hue: 85,
+    featured: true,
+  },
+  {
     name: "eduBee",
     tagline: "Multi-tenant School SaaS",
     description:
